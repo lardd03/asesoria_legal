@@ -5,6 +5,9 @@ import Inspector from 'vite-plugin-vue-inspector'
 
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
+  // Base URL para GitHub Pages (nombre del repositorio)
+  base: '/asesoria_legal/',
+  
   // Activamos DevTools/Inspector solo en desarrollo para no afectar el build
   plugins: [
     vue(),
