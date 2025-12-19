@@ -5,7 +5,7 @@ import { useUIStore } from './ui'
 export const useNavigationStore = defineStore('navigation', () => {
   // State
   const transitionDirection = ref('left')
-  const transitionDuration = ref(600)
+  const transitionDuration = ref(800) // Transición más suave
   const isSwipeEnabled = ref(true)
   const swipeThreshold = ref(50)
   const keyboardNavEnabled = ref(true)

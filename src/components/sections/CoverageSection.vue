@@ -128,6 +128,14 @@ const goToContact = () => {
   overflow: hidden;
 }
 
+/* Permitir scroll en móvil */
+@media (max-width: 767px) {
+  .section-coverage {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
 /* Background */
 .coverage-bg-pattern {
   position: absolute;
@@ -437,49 +445,157 @@ const goToContact = () => {
 
 /* Responsive */
 @media (max-width: 767px) {
+  .coverage-wrapper {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    min-height: auto;
+  }
+  
   .coverage-header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .coverage-badge {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.65rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .coverage-main-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .coverage-main-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .coverage-title-line {
+    width: 40px;
+    height: 2px;
   }
   
   .coverage-content {
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
   }
   
-  .coverage-map-container {
-    width: 280px;
-    height: 280px;
-  }
-  
-  .coverage-map-icon {
-    width: 220px;
-    height: 220px;
-    padding: 30px;
-  }
-  
-  .ring--1 { width: 240px; height: 240px; }
-  .ring--2 { width: 260px; height: 260px; }
-  .ring--3 { width: 280px; height: 280px; }
-  
-  .coverage-features {
-    grid-template-columns: 1fr;
+  .coverage-visual {
     gap: 0.75rem;
   }
   
+  .coverage-map-container {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .coverage-map-glow {
+    inset: -20px;
+  }
+  
+  .coverage-map-icon {
+    width: 140px;
+    height: 140px;
+    padding: 20px;
+    border-width: 2px;
+  }
+  
+  .mexico-map-svg {
+    width: 220%;
+  }
+  
+  .ring--1 { width: 150px; height: 150px; }
+  .ring--2 { width: 165px; height: 165px; }
+  .ring--3 { width: 180px; height: 180px; }
+  
+  .coverage-label {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .coverage-features {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  
   .feature-card {
-    padding: 0.875rem;
+    padding: 0.6rem;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .feature-card__icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .feature-card__icon i {
+    font-size: 0.9rem;
+  }
+  
+  .feature-card__title {
+    font-size: 0.75rem;
+  }
+  
+  .feature-card__desc {
+    font-size: 0.65rem;
+    display: none;
   }
   
   .coverage-cta {
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 0.75rem;
+    padding: 0.75rem;
     text-align: center;
+    border-radius: 12px;
   }
   
   .coverage-cta__info {
-    flex-direction: column;
+    font-size: 0.75rem;
     gap: 0.5rem;
+  }
+  
+  .coverage-cta__info i {
+    font-size: 1rem;
+  }
+  
+  .coverage-glow--center {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 380px) {
+  .coverage-map-container {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .coverage-map-icon {
+    width: 120px;
+    height: 120px;
+    padding: 15px;
+  }
+  
+  .mexico-map-svg {
+    width: 200%;
+  }
+  
+  .ring--1 { width: 130px; height: 130px; }
+  .ring--2 { width: 140px; height: 140px; }
+  .ring--3 { width: 150px; height: 150px; }
+  
+  .coverage-features {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+  }
+  
+  .feature-card {
+    padding: 0.5rem;
   }
 }
 </style>

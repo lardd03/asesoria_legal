@@ -136,7 +136,7 @@ onMounted(() => {
   width: 100%;
   height: 100vh; // Full viewport height
   z-index: 0;
-  opacity: 0.7; // More visible 3D effect
+  opacity: 0.9; // More visible 3D effect
   pointer-events: none; // Don't interfere with interactions
 }
 
