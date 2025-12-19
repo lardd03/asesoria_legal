@@ -1,0 +1,176 @@
+@use '../variables/typography' as *;
+@use '../variables/colors' as *;
+@use '../variables/spacing' as *;
+@use '../mixins/responsive' as *;
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-headings;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $text-primary;
+  margin-bottom: $space-4;
+}
+
+h1 {
+  font-size: $font-size-3xl;
+  
+  @include md {
+    font-size: $font-size-4xl;
+  }
+  
+  @include lg {
+    font-size: $font-size-5xl;
+  }
+  
+  @include xl {
+    font-size: $font-size-6xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-2xl;
+  
+  @include md {
+    font-size: $font-size-3xl;
+  }
+  
+  @include lg {
+    font-size: $font-size-4xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-xl;
+  
+  @include md {
+    font-size: $font-size-2xl;
+  }
+  
+  @include lg {
+    font-size: $font-size-3xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-lg;
+  
+  @include md {
+    font-size: $font-size-xl;
+  }
+}
+
+h5 {
+  font-size: $font-size-base;
+  
+  @include md {
+    font-size: $font-size-lg;
+  }
+}
+
+h6 {
+  font-size: $font-size-sm;
+  
+  @include md {
+    font-size: $font-size-base;
+  }
+}
+
+// Párrafos
+p {
+  margin-bottom: $space-4;
+  color: $text-secondary;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Enlaces
+a {
+  color: $accent-primary;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: $accent-hover;
+  }
+}
+
+// Listas
+ul, ol {
+  margin-bottom: $space-4;
+  padding-left: $space-6;
+  
+  li {
+    margin-bottom: $space-2;
+    color: $text-secondary;
+  }
+}
+
+// Énfasis
+strong, b {
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+}
+
+em, i {
+  font-style: italic;
+}
+
+// Código
+code {
+  font-family: $font-mono;
+  font-size: 0.9em;
+  background-color: $bg-tertiary;
+  padding: $space-1 $space-2;
+  border-radius: 4px;
+  color: $accent-primary;
+}
+
+pre {
+  background-color: $bg-secondary;
+  padding: $space-4;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: $space-4;
+  
+  code {
+    background-color: transparent;
+    padding: 0;
+  }
+}
+
+// Blockquote
+blockquote {
+  border-left: 4px solid $accent-primary;
+  padding-left: $space-4;
+  margin: $space-6 0;
+  font-style: italic;
+  color: $text-muted;
+}
+
+// Separador
+hr {
+  border: none;
+  border-top: 1px solid $border-color;
+  margin: $space-8 0;
+}
+
+// Texto pequeño
+small {
+  font-size: $font-size-sm;
+  color: $text-muted;
+}
+
+// Texto de ayuda
+.text-muted {
+  color: $text-muted;
+}
+
+.text-primary {
+  color: $text-primary;
+}
+
+.text-accent {
+  color: $accent-primary;
+}

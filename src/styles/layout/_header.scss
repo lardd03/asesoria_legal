@@ -1,0 +1,204 @@
+@use '../variables/colors' as *;
+@use '../variables/spacing' as *;
+@use '../variables/typography' as *;
+@use '../mixins/responsive' as *;
+
+// Header principal
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba($bg-primary, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $border-color;
+  padding: $space-4 0;
+  transition: all 0.3s ease;
+  
+  @include md {
+    padding: $space-5 0;
+  }
+  
+  &.scrolled {
+    background-color: rgba($bg-primary, 0.98);
+    box-shadow: $shadow-md;
+  }
+  
+  .header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 $space-4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    @include md {
+      padding: 0 $space-8;
+    }
+  }
+  
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    text-decoration: none;
+    
+    .logo-icon {
+      font-size: $font-size-2xl;
+      color: $accent-primary;
+      
+      @include md {
+        font-size: $font-size-3xl;
+      }
+    }
+    
+    .logo-text {
+      display: none;
+      
+      @include md {
+        display: block;
+      }
+      
+      h1 {
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+        color: $text-primary;
+        margin: 0;
+        letter-spacing: $letter-spacing-wide;
+      }
+      
+      .logo-subtitle {
+        font-size: $font-size-xs;
+        color: $accent-primary;
+        margin: 0;
+      }
+    }
+  }
+  
+  .header-nav {
+    display: none;
+    
+    @include md {
+      display: flex;
+      align-items: center;
+      gap: $space-6;
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: $space-6;
+      
+      a {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        color: $text-secondary;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background-color: $accent-primary;
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+        }
+        
+        &:hover,
+        &.active {
+          color: $accent-primary;
+          
+          &::after {
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+  }
+  
+  // Botón de menú móvil
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    color: $text-primary;
+    cursor: pointer;
+    
+    @include md {
+      display: none;
+    }
+    
+    i {
+      font-size: $font-size-xl;
+      transition: transform 0.3s ease;
+    }
+    
+    &.active i {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+// Menú móvil
+.mobile-menu {
+  position: fixed;
+  top: 73px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($bg-primary, 0.98);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  padding: $space-6 $space-4;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  
+  &.open {
+    transform: translateX(0);
+  }
+  
+  @include md {
+    display: none;
+  }
+  
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+    
+    a {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-medium;
+      color: $text-secondary;
+      text-decoration: none;
+      padding: $space-3 0;
+      border-bottom: 1px solid $border-color;
+      transition: color 0.3s ease;
+      
+      &:hover,
+      &.active {
+        color: $accent-primary;
+      }
+    }
+  }
+  
+  .mobile-cta {
+    margin-top: $space-8;
+  }
+}

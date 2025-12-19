@@ -1,0 +1,49 @@
+// Paleta de Colores - Tema Oscuro Profesional
+// Fondos
+$bg-primary: #0a0a0a;
+$bg-secondary: #1a1a1a;
+$bg-tertiary: #2a2a2a;
+$bg-card: #1f1f1f;
+$bg-hover: #252525;
+
+// Textos
+$text-primary: #ffffff;
+$text-secondary: #e0e0e0;
+$text-muted: #a0a0a0;
+$text-disabled: #6a6a6a;
+
+// Acentos y CTAs (Rojo profesional)
+$accent-primary: #dc3545;
+$accent-hover: #ff4458;
+$accent-active: #c82333;
+$accent-light: rgba(220, 53, 69, 0.1);
+
+// Estados
+$success: #28a745;
+$warning: #ffc107;
+$error: #dc3545;
+$info: #17a2b8;
+
+// Bordes y divisores
+$border-color: #333333;
+$border-light: #444444;
+$divider: rgba(255, 255, 255, 0.1);
+
+// Sombras
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+$shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.6);
+
+// Overlay
+$overlay: rgba(0, 0, 0, 0.7);
+$overlay-light: rgba(0, 0, 0, 0.5);
+
+// ========================================
+// ALIAS para compatibilidad entre componentes
+// ========================================
+$color-dark: $bg-primary;
+$color-primary: $accent-primary;
+$color-text-primary: $text-primary;
+$color-text-secondary: $text-secondary;
+$color-border: $border-color;

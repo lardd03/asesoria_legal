@@ -1,0 +1,106 @@
+// Mixins para Transiciones Horizontales
+
+@use '../variables/colors' as *;
+
+// Duración de transiciones
+$transition-fast: 200ms;
+$transition-normal: 300ms;
+$transition-slow: 600ms;
+
+// Easing functions
+$ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+$ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// Transición horizontal suave
+@mixin slide-transition($duration: $transition-slow, $easing: $ease-out) {
+  transition: transform $duration $easing;
+}
+
+// Slide desde la izquierda
+@mixin slide-in-left($duration: $transition-slow) {
+  animation: slideInLeft $duration $ease-out;
+}
+
+// Slide desde la derecha
+@mixin slide-in-right($duration: $transition-slow) {
+  animation: slideInRight $duration $ease-out;
+}
+
+// Fade in
+@mixin fade-in($duration: $transition-normal) {
+  animation: fadeIn $duration $ease-out;
+}
+
+// Transición genérica
+@mixin transition($properties...) {
+  transition-property: $properties;
+  transition-duration: $transition-normal;
+  transition-timing-function: $ease-out;
+}
+
+// Hover effect suave
+@mixin hover-effect($scale: 1.05, $duration: $transition-fast) {
+  transition: transform $duration $ease-out;
+  
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+// Efecto de brillo en hover
+@mixin hover-glow($color: $accent-primary) {
+  transition: box-shadow $transition-normal $ease-out;
+  
+  &:hover {
+    box-shadow: 0 0 20px rgba($color, 0.5);
+  }
+}
+
+// Keyframes para animaciones
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+// Transición de sección horizontal
+@mixin section-transition {
+  will-change: transform;
+  transition: transform $transition-slow $ease-out;
+}

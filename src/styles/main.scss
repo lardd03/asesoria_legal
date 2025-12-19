@@ -1,0 +1,71 @@
+// Punto de entrada principal de estilos SCSS
+
+// 1. Variables
+@use 'variables/colors' as colors;
+@use 'variables/typography' as typo;
+@use 'variables/spacing' as spacing;
+@use 'variables/breakpoints' as bp;
+
+// 2. Mixins
+@use 'mixins/responsive';
+@use 'mixins/transitions';
+
+// 3. Base
+@use 'base/reset';
+@use 'base/typography' as baseTypography;
+@use 'base/utilities';
+
+// 4. Layout
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/sections';
+
+// 5. Components
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/forms';
+@use 'components/navigation';
+
+// Estilos globales
+body {
+  font-family: typo.$font-primary;
+  background-color: colors.$bg-primary;
+  color: colors.$text-primary;
+  overflow-x: hidden;
+}
+
+// Smooth scrolling deshabilitado para navegación horizontal
+html {
+  scroll-behavior: auto;
+}
+
+// Selección de texto personalizada
+::selection {
+  background-color: colors.$accent-primary;
+  color: colors.$text-primary;
+}
+
+::-moz-selection {
+  background-color: colors.$accent-primary;
+  color: colors.$text-primary;
+}
+
+// Scrollbar personalizado (solo Chrome/Edge)
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: colors.$bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: colors.$bg-tertiary;
+  border-radius: 4px;
+  
+  &:hover {
+    background: colors.$border-light;
+  }
+}
+

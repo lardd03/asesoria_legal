@@ -1,0 +1,186 @@
+@use '../variables/colors' as *;
+@use '../variables/spacing' as *;
+@use '../variables/typography' as *;
+@use '../mixins/responsive' as *;
+
+// Formulario base
+.form {
+  width: 100%;
+}
+
+// Grupo de formulario
+.form-group {
+  margin-bottom: $space-5;
+}
+
+// Label
+.form-label {
+  display: block;
+  margin-bottom: $space-2;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+}
+
+// Input, Select, Textarea
+.form-control {
+  width: 100%;
+  padding: $space-3 $space-4;
+  font-size: $font-size-base;
+  font-family: $font-primary;
+  color: $text-primary;
+  background-color: $bg-secondary;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  
+  &::placeholder {
+    color: $text-muted;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $accent-primary;
+    background-color: $bg-tertiary;
+    box-shadow: 0 0 0 3px rgba($accent-primary, 0.1);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: $bg-primary;
+  }
+  
+  &.is-invalid {
+    border-color: $error;
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($error, 0.1);
+    }
+  }
+  
+  &.is-valid {
+    border-color: $success;
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($success, 0.1);
+    }
+  }
+}
+
+// Textarea específico
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+// Select
+select.form-control {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $space-3 center;
+  padding-right: $space-8;
+  appearance: none;
+}
+
+// Checkbox y Radio
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-2;
+  margin-bottom: $space-3;
+  
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: $accent-primary;
+  }
+  
+  label {
+    flex: 1;
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    cursor: pointer;
+    
+    a {
+      color: $accent-primary;
+      text-decoration: underline;
+      
+      &:hover {
+        color: $accent-hover;
+      }
+    }
+  }
+}
+
+// Mensaje de error
+.form-error {
+  display: block;
+  margin-top: $space-2;
+  font-size: $font-size-sm;
+  color: $error;
+}
+
+// Mensaje de ayuda
+.form-help {
+  display: block;
+  margin-top: $space-2;
+  font-size: $font-size-sm;
+  color: $text-muted;
+}
+
+// Feedback de éxito
+.form-success {
+  padding: $space-4;
+  background-color: rgba($success, 0.1);
+  border: 1px solid $success;
+  border-radius: 8px;
+  color: $success;
+  text-align: center;
+  margin-bottom: $space-4;
+  
+  i {
+    font-size: $font-size-2xl;
+    margin-bottom: $space-2;
+  }
+}
+
+// Feedback de error general
+.form-error-message {
+  padding: $space-4;
+  background-color: rgba($error, 0.1);
+  border: 1px solid $error;
+  border-radius: 8px;
+  color: $error;
+  text-align: center;
+  margin-bottom: $space-4;
+}
+
+// Input con ícono
+.form-input-icon {
+  position: relative;
+  
+  .form-control {
+    padding-left: $space-10;
+  }
+  
+  .icon {
+    position: absolute;
+    left: $space-4;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-muted;
+    pointer-events: none;
+  }
+}
+
+// Responsive
+@include md {
+  .form-control {
+    padding: $space-4 $space-5;
+  }
+}

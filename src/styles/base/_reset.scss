@@ -1,0 +1,120 @@
+@use '../variables/colors' as *;
+@use '../variables/typography' as *;
+
+// Variables CSS personalizadas (custom properties) disponibles globalmente
+:root {
+  // Colores
+  --bg-primary: #{$bg-primary};
+  --bg-secondary: #{$bg-secondary};
+  --bg-tertiary: #{$bg-tertiary};
+  --bg-card: #{$bg-card};
+  --bg-hover: #{$bg-hover};
+  
+  // Textos
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --text-muted: #{$text-muted};
+  --text-disabled: #{$text-disabled};
+  
+  // Acentos
+  --accent-primary: #{$accent-primary};
+  --accent-hover: #{$accent-hover};
+  --accent-active: #{$accent-active};
+  --accent-light: #{$accent-light};
+  
+  // Estados
+  --success: #{$success};
+  --warning: #{$warning};
+  --error: #{$error};
+  --info: #{$info};
+  
+  // Bordes
+  --border-color: #{$border-color};
+  --border-light: #{$border-light};
+}
+
+// Reset CSS personalizado
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $text-primary;
+  background-color: $bg-primary;
+  overflow-x: hidden;
+}
+
+// Eliminar estilos por defecto de listas
+ul,
+ol {
+  list-style: none;
+}
+
+// Links sin decoración por defecto
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Imágenes responsivas por defecto
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// Forms
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+// Quitar outline por defecto (se agregará uno accesible)
+button,
+a {
+  outline: none;
+  
+  &:focus-visible {
+    outline: 2px solid $accent-primary;
+    outline-offset: 2px;
+  }
+}
+
+// Prevenir overflow de texto
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+// Deshabilitar selección de texto en elementos interactivos
+button,
+.no-select {
+  user-select: none;
+}

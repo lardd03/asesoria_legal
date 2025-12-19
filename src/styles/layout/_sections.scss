@@ -1,0 +1,201 @@
+@use '../variables/colors' as *;
+@use '../variables/typography' as *;
+@use '../variables/spacing' as *;
+@use '../mixins/responsive' as *;
+@use '../mixins/transitions' as *;
+
+// Contenedor de secciones horizontales
+.sections-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  
+  @include section-transition;
+}
+
+// Sección individual
+.section {
+  min-width: 100vw;
+  min-height: 100vh;
+  padding-top: 100px;  // Espacio para el header fijo
+  padding-bottom: $space-12;
+  padding-left: $space-4;
+  padding-right: $space-4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;  // Cambiado de center a flex-start
+  align-items: center;
+  position: relative;
+  overflow-y: auto;  // Permitir scroll si el contenido es muy largo
+  
+  @include md {
+    padding-top: 120px;
+    padding-left: $space-8;
+    padding-right: $space-8;
+  }
+  
+  .section-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: $space-8;  // Espacio adicional interno
+  }
+  
+  // Variantes de sección
+  &.section-hero {
+    background: linear-gradient(135deg, $bg-primary 0%, $bg-secondary 100%);
+  }
+  
+  &.section-dark {
+    background-color: $bg-primary;
+  }
+  
+  &.section-light {
+    background-color: $bg-secondary;
+  }
+  
+  &.section-accent {
+    background: linear-gradient(135deg, rgba($accent-primary, 0.1) 0%, $bg-primary 100%);
+  }
+  
+  // Patrón de fondo
+  &.section-pattern {
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba($accent-primary, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba($accent-primary, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+  }
+}
+
+// Título de sección
+.section-title {
+  text-align: center;
+  margin-bottom: $space-12;
+  
+  @include md {
+    margin-bottom: $space-16;
+  }
+  
+  h2 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: $space-3;
+    
+    @include md {
+      font-size: $font-size-4xl;
+    }
+    
+    @include lg {
+      font-size: $font-size-5xl;
+    }
+    
+    .accent {
+      color: $accent-primary;
+    }
+  }
+  
+  .subtitle {
+    font-size: $font-size-lg;
+    color: $text-muted;
+    max-width: 600px;
+    margin: 0 auto;
+    
+    @include md {
+      font-size: $font-size-xl;
+    }
+  }
+  
+  .divider {
+    width: 80px;
+    height: 4px;
+    background-color: $accent-primary;
+    margin: $space-6 auto 0;
+    border-radius: 2px;
+  }
+}
+
+// Grid de contenido
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+  
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-8;
+  }
+  
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @include xl {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  &.grid-2 {
+    @include lg {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  &.grid-3 {
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// Contenedor centrado
+.section-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60vh;
+}
+
+// Animación de entrada de sección
+.section-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+  
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Elementos flotantes decorativos
+.floating-element {
+  position: absolute;
+  opacity: 0.05;
+  pointer-events: none;
+  
+  &.top-left {
+    top: 10%;
+    left: 5%;
+    font-size: 200px;
+  }
+  
+  &.bottom-right {
+    bottom: 10%;
+    right: 5%;
+    font-size: 150px;
+  }
+}
