@@ -46,7 +46,7 @@ const props = defineProps({
   },
   image: {
     type: String,
-    default: '/images/partners/default-avatar.jpg'
+    default: ''
   },
   specialties: {
     type: Array,

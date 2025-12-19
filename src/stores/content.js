@@ -11,6 +11,9 @@ export const useContentStore = defineStore('content', () => {
     values: ['Profesionalismo', 'Confianza', 'Resultados', 'Ética', 'Compromiso']
   })
 
+  // Usar BASE_URL para que las rutas funcionen con GitHub Pages
+  const baseUrl = import.meta.env.BASE_URL
+  
   const partners = ref([
     {
       id: 1,
@@ -19,7 +22,7 @@ export const useContentStore = defineStore('content', () => {
       specialties: ['Derecho Civil', 'Derecho Penal', 'Amparos'],
       email: 'solucioncsjcs@hotmail.com',
       phone: '55-6192-9409',
-      image: '/images/partners/p2.png',
+      image: `${baseUrl}images/partners/p2.png`,
       description: 'Especialista en litigio con más de 15 años de experiencia defendiendo los derechos de nuestros clientes.'
     },
     {
@@ -29,7 +32,7 @@ export const useContentStore = defineStore('content', () => {
       specialties: ['Derecho Familiar', 'Derecho Laboral', 'Administrativo'],
       email: 'mjsolucionesjcs@hotmail.com',
       phone: '55-7429-5791',
-      image: '/images/partners/p1.png',
+      image: `${baseUrl}images/partners/p1.png`,
       description: 'Experta en resolución de conflictos familiares y laborales con enfoque humanista y resultados comprobados.'
     }
   ])
